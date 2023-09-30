@@ -1,36 +1,50 @@
 import processing.core.PApplet;
 
+/**
+ * Outputs a picture of a house with the sun, which adjusts to match any frame size. The sky colour will change depending on the width.
+ * @author: Timothy C. 
+ */
+
 public class Sketch extends PApplet {
 	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
   public void settings() {
-	// put your size call here
-    size(400, 400);
+    size(562, 297);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
-    background(210, 255, 173);
+    background(0, 0, width/4);
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+    // the sun
+    fill(255, 255, 0);
+	  ellipse(width, 0, width/2, width/2);
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+    // the grass
+    fill(0, 128,0);
+    rect(0, (float) (height/1.14285714), (float)width, (float)(height/8));
+
+    // the house
+    fill(181, 101, 29);
+    rect((float) (width/2.28571429), (float) (height/1.333333), width/8, height/8);
+    fill(128, 128, 128);
+    triangle(width / 2, (float) (height/1.6), (float) (width/2.28571429), (float) (height/1.333333), (float) (width/1.77777778), (float) (height/1.333333));
+
+    // windows
+    fill(255, 255, 255);
+    rect((float) (width/2.22222222), (float) (height/1.31147541), (float) (width/26.6666667) , (float) (height/26.6666667));
+    fill(255, 255, 255);
+    rect((float) (width/2.22222222), (float) (height/1.21212121), (float) (width/26.6666667), (float) (height/26.6666667));
+    fill(255, 255, 255);
+    rect((float) (width/1.95121951), (float) (height/1.31147541), (float) (width/26.6666667), (float) (height/26.6666667));
+
+    // door
+    fill(255, 25, 0);
+    rect((float)(width/1.95121951), (float) (height/1.21212121), (float) (width/26.6666667), (float) (height/20));
+    
+    // misc.
+    textSize(width/8);
+    text("'house' by Tim", width/80, height / 2);
   }
   
-  // define other methods down here.
 }
